@@ -1,0 +1,24 @@
+#!/bin/sh
+
+export NAME=steererh
+
+export COOB=$HOME/coob
+export COOBDB=$COOB/adm
+export TCL=$HOME/tcl
+export BACKUPDIR=$COOB/bak
+export LOGDIR=$COOB/log
+export DATADIR=${DATADIR:-$HOME/cosy/$NAME/all-data}
+export SOURCEDIR=$HOME/cosy/$NAME
+export LIBDIR=$COOB/utils
+export BITMAPDIR=$TCL/bitmap
+export FGENDIR=$COOB/fgen
+export FGEN_FEINEDITOR=$FGENDIR/impuls/Feineditor
+export ORBIT_DIR=$HOME/tcl/orbit
+export XMAD_HOME=$COOB/lib/xmad
+export MODELLDIR=$COOB/lib/modell
+export COSMO_SRC=$HOME/coob/lib
+export PGHOST=bill
+export PGUSER=mike
+export PATH=$PATH:$HOME/coob/bin
+
+pgwish -f $NAME.tcl ${1+"$@"}

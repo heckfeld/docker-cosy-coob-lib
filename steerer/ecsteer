@@ -1,0 +1,27 @@
+#!/bin/sh
+
+export NAME=ecsteer
+
+export COOB=$HOME/coob
+export COOBDB=$COOB/adm
+export TCL=$HOME/tcl
+export BACKUPDIR=$TCL/bak
+export LOGDIR=$TCL/log
+export SOURCEDIR=$HOME/$NAME
+export LIBDIR=$HOME/utils
+export BITMAPDIR=$TCL/bitmaps
+export FGENDIR=$TCL/fgen
+export FGEN_FEINEDITOR=$FGENDIR/impuls/Feineditor
+export ORBIT_DIR=$HOME/tcl/orbit
+export XMAD_HOME=$COOB/lib/xmad
+export MODELLDIR=$COOB/lib/modell
+export COSMO_SRC=$HOME/coob/lib
+export PGHOST=bill
+export PGUSER=operator
+export PATH=$PATH:$HOME/coob/bin
+
+#export DP_LIBRARY=$HOME/coob/lib/dp
+#export TCL_LIBRARY=$HOME/coob/tclX/7.3b/
+#export TK_LIBRARY=$HOME/coob/tkX/3.6b/
+
+wishx -f $NAME.tcl ${1+"$@"}

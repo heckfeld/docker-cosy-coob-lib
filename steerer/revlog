@@ -1,0 +1,404 @@
+
+
+Die Sep 16 14:42:40 CEST 2014
+Sicherung
+Filebox.tcl:
+Target_all_dummy.tcl:
+beule.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/beule.tcl,v 1.3 2012/01/26 10:34:27 tine Exp $
+     $title: Fehler im Wert fuer $
+     $title: Fehler im Wert fuer $
+     $elem: $
+     $elem: Fehler beim Aufruf von $
+     $elem: Die Datei $
+     $title: Es sind keine Werte fuer $
+blw.tcl:
+blwanke.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/blwanke.tcl,v 1.2 2011/12/02 13:50:36 tine Exp $
+blwsteer.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/blwsteer.tcl,v 1.3 2012/04/25 14:42:01 tine Exp $
+     $NAME: $
+bwsteer.tcl:
+bwsteertst.tcl:
+crate.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/crate.tcl,v 1.7 2012/04/25 14:56:17 tine Exp $
+database.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/database.tcl,v 1.2 2012/01/20 12:56:33 tine Exp $
+dps.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/dps.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+     $this: Der Sollwert muss >= $
+     $this: Der Sollwert muss <= $
+     $this: Der Topwert muss >= $
+     $this: Der Topwert muss <= $
+     $this: $
+     $this: $
+     $this: Der Rechentyp von Experiment $
+     $this: Der Sollwert fuer Experiment $
+     $this: Der Topwert fuer Experiment $
+     $this: Die Wedelskalierung fuer Experiment $
+     $this: Der Wert fuer die Zeit in Zeile $
+     $this: Der Amplitudenwert fuer die Zeile $
+     $this: Das Fgen-File $
+     $this: Das Fgen-File $
+     $this: Fuer Experiment $
+dpsview.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/dpsview.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+dummy.tcl:
+dummy_crate.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/dummy_crate.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+dummy_dps.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/dummy_dps.tcl,v 1.6 2012/04/11 09:48:45 tine Exp $
+dummy_orbit_einzel.tcl:
+dummy_trx.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/dummy_trx.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+ecsteer.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/ecsteer.tcl,v 1.2 2011/12/02 13:50:36 tine Exp $
+features.tcl:
+filebox.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/filebox.tcl,v 1.2 2011/12/02 13:58:01 tine Exp $
+graphic.tcl:
+graphic_einzel.tcl:
+group.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/group.tcl,v 1.6 2012/10/08 13:52:37 tine Exp $
+init.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/init.tcl,v 1.11 2012/04/26 09:19:02 tine Exp $
+manage_steerer.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/manage_steerer.tcl,v 1.2 2012/01/25 10:04:52 tine Exp $
+master.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/master.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+member.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/member.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+orbit.tcl:
+     $elem: $
+     $elem: Fehler beim Aufruf von $
+     $elem: Die Datei $
+orbit_einzel.tcl:
+     $magnet: Es sind maximal $
+     $magnet: $
+     $magnet: In Zeile $
+     $magnet: In Zeile $
+real_dummy_crate.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/real_dummy_crate.tcl,v 1.1 2012/04/25 14:40:21 tine Exp $
+real_dummy_trx.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/real_dummy_trx.tcl,v 1.1 2012/04/25 14:41:18 tine Exp $
+setting.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/setting.tcl,v 1.2 2011/12/02 13:50:36 tine Exp $
+steererh.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/steererh.tcl,v 1.2 2011/12/02 13:50:36 tine Exp $
+steererv.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/steererv.tcl,v 1.2 2011/12/02 13:50:36 tine Exp $
+sw_trigger.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/sw_trigger.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+timsrxlist_value.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/timsrxlist_value.tcl,v 1.3 2014/09/16 12:42:44 tine Exp $
+trx.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/trx.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+trxview_value.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/trxview_value.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+ustate.tcl:
+wedel.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/wedel.tcl,v 1.3 2012/01/26 10:33:28 tine Exp $
+     $title: Fehler im Wert fuer $
+     $title: Fehler im Wert fuer $
+     $elem: $
+     $elem: Fehler beim Aufruf von $
+     $elem: Die Datei $
+     $title: Es sind keine Werte fuer $
+
+
+Don Jan 26 09:43:49 CET 2012
+Vielleicht sind die Fehler schon behoben, aber wer weiss das schon?
+Filebox.tcl:
+Target_all_dummy.tcl:
+beule.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/beule.tcl,v 1.2 2012/01/20 13:18:53 tine Exp $
+     $title: Fehler im Wert fuer $
+     $title: Fehler im Wert fuer $
+     $elem: $
+     $elem: Fehler beim Aufruf von $
+     $elem: Die Datei $
+     $title: Es sind keine Werte fuer $
+blw.tcl:
+blwanke.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/blwanke.tcl,v 1.2 2011/12/02 13:50:36 tine Exp $
+blwsteer.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/blwsteer.tcl,v 1.2 2011/12/02 13:50:36 tine Exp $
+     $NAME: $
+bwsteer.tcl:
+bwsteertst.tcl:
+crate.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/crate.tcl,v 1.3 2012/01/20 13:05:28 tine Exp $
+database.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/database.tcl,v 1.2 2012/01/20 12:56:33 tine Exp $
+dps.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/dps.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+     $this: Der Sollwert muss >= $
+     $this: Der Sollwert muss <= $
+     $this: Der Topwert muss >= $
+     $this: Der Topwert muss <= $
+     $this: $
+     $this: $
+     $this: Der Rechentyp von Experiment $
+     $this: Der Sollwert fuer Experiment $
+     $this: Der Topwert fuer Experiment $
+     $this: Die Wedelskalierung fuer Experiment $
+     $this: Der Wert fuer die Zeit in Zeile $
+     $this: Der Amplitudenwert fuer die Zeile $
+     $this: Das Fgen-File $
+     $this: Das Fgen-File $
+     $this: Fuer Experiment $
+dpsview.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/dpsview.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+dummy.tcl:
+dummy_crate.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/dummy_crate.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+dummy_dps.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/dummy_dps.tcl,v 1.4 2012/01/25 09:34:02 tine Exp $
+dummy_orbit_einzel.tcl:
+dummy_trx.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/dummy_trx.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+ecsteer.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/ecsteer.tcl,v 1.2 2011/12/02 13:50:36 tine Exp $
+features.tcl:
+filebox.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/filebox.tcl,v 1.2 2011/12/02 13:58:01 tine Exp $
+graphic.tcl:
+graphic_einzel.tcl:
+group.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/group.tcl,v 1.4 2012/01/26 08:44:16 tine Exp $
+init.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/init.tcl,v 1.6 2012/01/26 08:44:16 tine Exp $
+manage_steerer.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/manage_steerer.tcl,v 1.2 2012/01/25 10:04:52 tine Exp $
+master.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/master.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+member.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/member.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+orbit.tcl:
+     $elem: $
+     $elem: Fehler beim Aufruf von $
+     $elem: Die Datei $
+orbit_einzel.tcl:
+     $magnet: Es sind maximal $
+     $magnet: $
+     $magnet: In Zeile $
+     $magnet: In Zeile $
+setting.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/setting.tcl,v 1.2 2011/12/02 13:50:36 tine Exp $
+steererh.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/steererh.tcl,v 1.2 2011/12/02 13:50:36 tine Exp $
+steererv.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/steererv.tcl,v 1.2 2011/12/02 13:50:36 tine Exp $
+sw_trigger.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/sw_trigger.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+timsrxlist_value.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/timsrxlist_value.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+trx.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/trx.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+trxview_value.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/trxview_value.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+ustate.tcl:
+wedel.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/wedel.tcl,v 1.2 2012/01/20 13:19:29 tine Exp $
+     $title: Fehler im Wert fuer $
+     $title: Fehler im Wert fuer $
+     $elem: $
+     $elem: Fehler beim Aufruf von $
+     $elem: Die Datei $
+     $title: Es sind keine Werte fuer $
+
+
+Fre Dez  2 14:49:38 CET 2011
+Anderungen fuer Weihnachts-Shutdown 2011-2012 ok, bis auf Test miumgestellter Hardware
+Dirbox.tcl:
+Filebox.tcl:
+Target_all_dummy.tcl:
+beule.tcl:
+     $title: Fehler im Wert fuer $
+     $title: Fehler im Wert fuer $
+     $elem: $
+     $elem: Fehler beim Aufruf von $
+     $elem: Die Datei $
+     $title: Es sind keine Werte fuer $
+blw.tcl:
+blwanke.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/blwanke.tcl,v 1.2 2011/12/02 13:50:36 tine Exp $
+blwsteer.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/blwsteer.tcl,v 1.2 2011/12/02 13:50:36 tine Exp $
+     $NAME: $
+bwsteer.tcl:
+bwsteertst.tcl:
+crate.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/crate.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+database.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/database.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+dirbox_handle.tcl:
+dps.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/dps.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+     $this: Der Sollwert muss >= $
+     $this: Der Sollwert muss <= $
+     $this: Der Topwert muss >= $
+     $this: Der Topwert muss <= $
+     $this: $
+     $this: $
+     $this: Der Rechentyp von Experiment $
+     $this: Der Sollwert fuer Experiment $
+     $this: Der Topwert fuer Experiment $
+     $this: Die Wedelskalierung fuer Experiment $
+     $this: Der Wert fuer die Zeit in Zeile $
+     $this: Der Amplitudenwert fuer die Zeile $
+     $this: Das Fgen-File $
+     $this: Das Fgen-File $
+     $this: Fuer Experiment $
+dpsview.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/dpsview.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+dummy.tcl:
+dummy_crate.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/dummy_crate.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+dummy_dps.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/dummy_dps.tcl,v 1.2 2011/12/02 13:50:36 tine Exp $
+dummy_orbit_einzel.tcl:
+dummy_trx.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/dummy_trx.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+ecsteer.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/ecsteer.tcl,v 1.2 2011/12/02 13:50:36 tine Exp $
+features.tcl:
+filebox.tcl:
+graphic.tcl:
+graphic_einzel.tcl:
+group.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/group.tcl,v 1.3 2011/12/02 13:50:36 tine Exp $
+init.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/init.tcl,v 1.5 2011/12/02 13:50:36 tine Exp $
+manage_steerer.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/manage_steerer.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+master.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/master.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+member.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/member.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+orbit.tcl:
+     $elem: $
+     $elem: Fehler beim Aufruf von $
+     $elem: Die Datei $
+orbit_einzel.tcl:
+     $magnet: Es sind maximal $
+     $magnet: $
+     $magnet: In Zeile $
+     $magnet: In Zeile $
+setting.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/setting.tcl,v 1.2 2011/12/02 13:50:36 tine Exp $
+steererh.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/steererh.tcl,v 1.2 2011/12/02 13:50:36 tine Exp $
+steererv.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/steererv.tcl,v 1.2 2011/12/02 13:50:36 tine Exp $
+sw_trigger.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/sw_trigger.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+timsrxlist_value.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/timsrxlist_value.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+trx.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/trx.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+trxview_value.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/trxview_value.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+ustate.tcl:
+wedel.tcl:
+     $title: Fehler im Wert fuer $
+     $title: Fehler im Wert fuer $
+     $elem: $
+     $elem: Fehler beim Aufruf von $
+     $elem: Die Datei $
+     $title: Es sind keine Werte fuer $
+
+
+Fre Sep 16 11:28:30 CEST 2011
+Anfangsversion, bevor Aenderungen bzgl. der Topwerte, Orbitdaten eingebaut werden.
+Target_all_dummy.tcl:
+beule.tcl:
+     $title: Fehler im Wert fuer $
+     $title: Fehler im Wert fuer $
+     $elem: $
+     $elem: Fehler beim Aufruf von $
+     $elem: Die Datei $
+     $title: Es sind keine Werte fuer $
+blw.tcl:
+blwanke.tcl:
+blwsteer.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/blwsteer.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+     $NAME: $
+bwsteer.tcl:
+bwsteertst.tcl:
+crate.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/crate.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+database.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/database.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+dps.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/dps.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+     $this: Der Sollwert muss >= $
+     $this: Der Sollwert muss <= $
+     $this: Der Topwert muss >= $
+     $this: Der Topwert muss <= $
+     $this: $
+     $this: $
+     $this: Der Rechentyp von Experiment $
+     $this: Der Sollwert fuer Experiment $
+     $this: Der Topwert fuer Experiment $
+     $this: Die Wedelskalierung fuer Experiment $
+     $this: Der Wert fuer die Zeit in Zeile $
+     $this: Der Amplitudenwert fuer die Zeile $
+     $this: Das Fgen-File $
+     $this: Das Fgen-File $
+     $this: Fuer Experiment $
+dpsview.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/dpsview.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+dummy.tcl:
+dummy_crate.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/dummy_crate.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+dummy_dps.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/dummy_dps.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+dummy_orbit_einzel.tcl:
+dummy_trx.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/dummy_trx.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+ecsteer.tcl:
+features.tcl:
+graphic.tcl:
+graphic_einzel.tcl:
+group.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/group.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+init.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/init.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+manage_steerer.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/manage_steerer.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+master.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/master.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+member.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/member.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+orbit.tcl:
+     $elem: $
+     $elem: Fehler beim Aufruf von $
+     $elem: Die Datei $
+orbit_einzel.tcl:
+     $magnet: Es sind maximal $
+     $magnet: $
+     $magnet: In Zeile $
+     $magnet: In Zeile $
+setting.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/setting.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+steererh.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/steererh.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+steererv.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/steererv.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+sw_trigger.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/sw_trigger.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+timsrxlist_value.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/timsrxlist_value.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+trx.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/trx.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+trxview_value.tcl:
+     $Header: /mnt/cc-x3/coob/lib/steerer/rcs/trxview_value.tcl,v 1.1 2011/09/16 09:29:41 tine Exp $
+ustate.tcl:
+wedel.tcl:
+     $title: Fehler im Wert fuer $
+     $title: Fehler im Wert fuer $
+     $elem: $
+     $elem: Fehler beim Aufruf von $
+     $elem: Die Datei $
+     $title: Es sind keine Werte fuer $

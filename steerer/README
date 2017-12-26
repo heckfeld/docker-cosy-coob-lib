@@ -1,0 +1,99 @@
+###############################################################################
+#
+#                                     README
+#
+#                          /mnt/cc-x3/coob/lib/steerer/
+#
+###############################################################################
+#
+# "ANKE-BLW" ("Backlegwinding Steerer Anke")
+# ------------------------------------------
+# blwanke
+# -------
+# blwanke.tcl
+# blwanke.data
+# timing_blwanke.data
+# crate_blwanke.data
+# ustate_blwanke.init
+#
+###############################################################################
+#
+# "BLW Steerer" ("Steerer Backleg Winding")
+# -----------------------------------------
+# blwdip
+# ------
+# blw.tcl
+# bwsteertst.data
+# timing_bwsteertst.data
+# crate_bwsteertst.data
+# ustate_bwsteertst.init
+#
+###############################################################################
+#
+# "Backlegwinding-Steerer" ("Backlegwinding-Steerer")
+# ---------------------------------------------------
+# blwsteer
+# --------
+# blwsteer.tcl
+# blwsteer.data
+# timing_blwsteer.data
+# crate_blwsteer.data
+# ustate_blwsteer.init
+#
+###############################################################################
+#
+# "E-Cooler Steerer" ("EK-Steerer")
+# ---------------------------------
+# ecsteer
+# -------
+# ecsteer.tcl
+# ecsteer.data
+# timing_ecsteer.data
+# crate_ecsteer.data
+# ustate_ecsteer.init
+#
+###############################################################################
+#
+# "horizontal Steerer" ("Dynamische Steerer horizontal")
+# ------------------------------------------------------
+# steererh
+# --------
+# steererh.tcl
+# steererh.data
+# timing_steererh.data
+# crate_steererh.data
+# ustate_steererh.init
+#
+###############################################################################
+#
+# "vertikal Steerer" ("Dynamische Steerer vertikal")
+# --------------------------------------------------
+# steererv
+# --------
+# steererv.tcl
+# steererv.data
+# timing_steererv.data
+# crate_steererv.data
+# ustate_steererv.init
+#
+###############################################################################
+###############################################################################
+#
+# Weihnachts-Shutdown 2011-2012:
+# ------------------------------
+#
+# 1.:
+# Backleg-Winding-Steerer in Steerer horizontal und Steerer vertikal integriert.
+# BLW01, BLW04 statt SV04
+# BLW02, BLW03 statt SH03
+#
+# 2.:
+# Orbitdaten korrigieren/optimieren.
+# Im Gruppenfenster in Menue-Leiste neuer Knopf: Orbitoptimierung
+# Zusaetzlich im Gruppen-Menu: Top-Werte in Soll-Werte uebernehmen
+#
+# Datei (default) fuer Orbitoptimierung: /mnt/cc-x/smb/csv/orm_steerer.csv
+# Format der Datei:
+# <Name>;<alter Wert>;<neuer Wert>
+#
+###############################################################################

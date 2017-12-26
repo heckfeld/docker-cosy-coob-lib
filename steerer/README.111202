@@ -1,0 +1,20 @@
+###############################################################################
+#
+# Weihnachts-Shutdown 2011-2012:
+# ------------------------------
+#
+# 1.:
+# Backleg-Winding-Steerer in Steerer horizontal und Steerer vertikal integriert.
+# BLW01, BLW04 statt SV04
+# BLW02, BLW03 statt SH03
+#
+# 2.:
+# Orbitdaten korrigieren/optimieren.
+# Im Gruppenfenster in Menue-Leiste neuer Knopf: Orbitoptimierung
+# Zusaetzlich im Gruppen-Menu: Top-Werte in Soll-Werte uebernehmen
+#
+# Datei (default) fuer Orbitoptimierung: /mnt/cc-x/smb/csv/orm_steerer.csv
+# Format der Datei:
+# <Name>;<alter Wert>;<neuer Wert>
+#
+###############################################################################
