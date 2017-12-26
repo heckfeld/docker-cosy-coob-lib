@@ -1,0 +1,1 @@
+# docker-cosy-coob-lib
