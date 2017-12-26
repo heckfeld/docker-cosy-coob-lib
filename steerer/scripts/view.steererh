@@ -1,0 +1,439 @@
+#!/usr/local/bin/tcl -f
+set laeuft(1) 1
+unset laeuft(1)
+set start(1) 1
+unset start(1)
+
+set rc [catch {exec grep set_sollval $argv} ret_string]
+
+if {$rc} {
+  set rc [catch {exec view.steerer_old_version $argv} ret_string]
+  puts $ret_string
+} else {
+  set rc [catch {exec grep explist $argv} ret_string]
+
+  if {$rc} {
+    return "Aufruf von $argv0 fehlerhaft!"
+  }
+
+  set explist [lindex $ret_string 4]
+
+  puts "  Experimentwechsel: Ein"
+  puts "  Experimentfolge:   $explist"
+
+  set rc [catch {exec grep -e "set_set " -e set_sollval -e "set_topval" \
+                 -e rclc -e rlex -e "select_steerer select entry" \
+                 -e start -e rampmagnete -e set_positiv $argv} ret_string]
+
+  if {$rc} {
+    return "Aufruf von $argv0 fehlerhaft!"
+  } else {
+    set max_exp 0
+    set max_fgen(0) 1
+    set savelist ""
+
+    # return_string in einzele Zeilen aufteilen
+    set lines [split $ret_string "\n"]
+
+    foreach line $lines {
+      # Falls set_set und on in der Zeile vorkommen
+      if {([string first set_set $line] != -1) && ([string first on $line] \
+                                                                     != -1)} {
+        set aus([lindex $line 2]) 0
+      } elseif {([string first set_set $line] != -1) && \
+                        ([string first off $line] != -1)} {
+        # Falls set_set und off in der Zeile vorkommen
+        set aus([lindex $line 2]) 1
+      } elseif {[string first set_sollval $line] != -1} {
+        # Falls soll in der Zeile vorkommt
+        set exp [lindex $line 2]
+        set soll([lindex $line 0],$exp) [lindex $line 3]
+
+        if {$exp > $max_exp} {
+          set max_exp $exp
+          set max_fgen($exp) 1
+          append savelist $exp
+        }
+      } elseif {[string first "set_topval" $line] != -1} {
+        # Falls top in der Zeile vorkommt
+        set top([lindex $line 0],[lindex $line 2]) [lindex $line 3]
+      } elseif {([string first rclc $line] != -1) || ([string first rlex \
+                                                            $line] != -1)} {
+        # Falls rclc oder rlex in der Zeile vorkommt
+        set laeuft([lindex $line 0]) 1
+      } elseif {[string first startup $line] != -1} {
+        # Falls startup
+        set laeuft([lindex $line 0]) 1
+      } elseif {[string first rampmagnete $line] != -1} {
+        set mlist [lindex $line 2]
+
+        foreach elem $mlist {
+          set laeuft($elem) 1
+        }
+      } elseif {[string first start $line] != -1} {
+        # Falls start
+        set start([lindex $line 0]) 1
+      } elseif {[string first set_positiv $line] != -1} {
+        set positiv([lindex $line 0]) [lindex $line 2]
+      }
+    }
+
+    foreach elem [lsort [array names aus]] {
+      # Ueberpruefen ob, Target rampt (Target rampt, wenn
+      # zugehoeriges Crate rampt und zugehoeriger Timing-Receiver gestartet
+      # ist)
+      set num [string range $elem 2 3]
+
+      # Ueberprufen, ob zugerhoeriges Crate rampt
+      set crate_ramp 0
+
+      foreach crate [array names laeuft] {
+        if {[string first $num $crate] != -1} {
+          set crate_ramp 1
+        }
+      }
+
+      if {$crate_ramp || ([info exists laeuft($elem)] && $laeuft($elem))} {
+        # Ueberpruefen, ob zugerhoeriger Timing-Receiver gestartet
+        set tr_start 0
+  
+        foreach tr [array names start] {
+          if {[string first $num $tr] != -1} {
+            set tr_start 1
+          }
+        }
+  
+        if {$tr_start} {
+          set ramp($elem) 1
+        } else {
+          set ramp($elem) 0
+        }
+      } else {
+        set ramp($elem) 0
+      }
+
+      set dir [file dirname $argv]
+
+      for {set i 1} {$i<= $max_exp} {incr i} {
+        # falls i in savelist
+        if {[string first $i $savelist] != -1} {
+          set file $dir/$elem.fgen$i
+
+          if {[file exists $file]} {
+            # falls ecsteer
+            if {[string first ecsteer $argv] != -1} {
+              set script fgen2ecxypr
+            } else {
+              set script fgen2xypr
+            }
+    
+            set rc [catch {exec $script <$file} ret_string]
+     
+            if {$rc} {
+              puts $ret_string
+            } else {
+              set count 1
+              set lines [split $ret_string "\n"]
+              set lines [lrange $lines 0 [expr [llength $lines] - 2]]
+              set max_fgen($i) [max $max_fgen($i) [llength $lines]]
+    
+              foreach line $lines {
+                set t${count}($elem,$i) [format %10d [lindex $line 0]]
+                set Ampl${count}($elem,$i) [format %8.3f [lindex $line 1]]
+                incr count
+              }
+            }
+          } else {
+            set rc [catch {exec grep "$elem set_rfgentyp $i" $argv} ret_string]
+      
+            if {!$rc} {
+              set typ [lindex $ret_string 3]
+
+              # falls typ o, b oder w
+              if {($typ == "o") || ($typ == "b") || ($typ == "w")} {
+                set s [format %8.3f $soll($elem,$i)]
+                set t [format %8.3f $top($elem,$i)]
+                set t1($elem,$i) [format %10d 0]
+                set Ampl1($elem,$i) $s
+                set Ampl2($elem,$i) $s
+                set Ampl3($elem,$i) $t
+                set Ampl4($elem,$i) $t
+                set sum 0
+                set count 2
+              }
+  
+              if {![string compare $typ o]} {
+                set rc [catch {exec grep -e "orbit set_begin $i" \
+                        -e "orbit set_up $i" -e "orbit set_top $i" \
+                        -e "orbit set_down $i" -e "orbit set_end $i" \
+                        $argv} ret_string]
+                set Ampl5($elem,$i) $s
+                set Ampl6($elem,$i) $s
+  
+                  foreach line [split $ret_string "\n"] {
+                set val [expr round([lindex $line 3]*1000)]
+                  set sum [expr $sum + $val]
+                  set t${count}($elem,$i) [format %10d $sum]
+                  incr count
+                }
+    
+                set max_fgen($i) [max $max_fgen($i) 6]
+              } elseif {![string compare $typ w]} {
+                set rc [catch {exec grep "wedel set_topstrom $i" $argv} \
+                        ret_string]
+                set val [lindex $ret_string 3]
+  
+                set rc [catch {exec grep "$elem set_wedelscale $i" $argv} \
+                        ret_string]
+                set scale [lindex $ret_string 3]
+  
+                set rc [catch {exec grep "orbit set_top $i" $argv} ret_string]
+                set otop [expr round([lindex $ret_string 3] * 1000)]
+  
+                set wtop [format %8.3f [expr $top($elem,$i) + $val * $scale]]
+                set wntop [format %8.3f [expr $top($elem,$i) - $val * $scale]]
+  
+                set Ampl5($elem,$i) $wtop
+                set Ampl6($elem,$i) $wtop
+                set Ampl7($elem,$i) $wntop
+                set Ampl8($elem,$i) $wntop
+                set Ampl9($elem,$i) $t
+                set Ampl10($elem,$i) $t
+                set Ampl11($elem,$i) $s
+                set Ampl12($elem,$i) $s
+
+                set rc [catch {exec grep -e "wedel set_begin $i" \
+                        -e "wedel set_up $i" -e "wedel set_wbegin $i" \
+                        -e "wedel set_wup1 $i" -e "wedel set_wtop $i" \
+                        -e "wedel set_wdown $i" -e "wedel set_wntop $i" \
+                        -e "wedel set_wup2 $i" \
+                        -e "wedel set_down $i" -e "wedel set_end $i" \
+                        -e "wedel set_top $i" $argv} ret_string]
+  
+                set liste [list begin up wbegin wup1 wtop wdown wntop wup2 \
+                           down end]
+
+                foreach line [split $ret_string "\n"] {
+                  set count 0
+                  set found 0
+  
+                  while {!$found} {
+                    set wert [lindex $liste $count]
+                    set search_string "wedel set_$wert"
+  
+                    if {[string first $search_string $line] != -1} {
+                      set $wert [expr round([lindex $line 3] * 1000)]
+                      set found 1
+                    }
+  
+                    incr count
+                  }
+                }
+
+                set sum $begin
+                set t2($elem,$i) [format %10d $sum]
+                set sum [expr $sum + $up]
+                set t3($elem,$i) [format %10d $sum]
+                set sum [expr $sum + $wbegin]
+                set t4($elem,$i) [format %10d $sum]
+                set sum [expr $sum + $wup1]
+                set t5($elem,$i) [format %10d $sum]
+                set sum [expr $sum + $wtop]
+                set t6($elem,$i) [format %10d $sum]
+                set sum [expr $sum + $wdown]
+                set t7($elem,$i) [format %10d $sum]
+                set sum [expr $sum + $wntop]
+                set t8($elem,$i) [format %10d $sum]
+                set sum [expr $sum + $wup2]
+                set t9($elem,$i) [format %10d $sum]
+                set sum [expr $begin + $up + $otop]
+                set t10($elem,$i) [format %10d $sum]
+                set sum [expr $sum + $down]
+                set t11($elem,$i) [format %10d $sum]
+                set sum [expr $sum + $end]
+                set t12($elem,$i) [format %10d $sum]
+  
+                set max_fgen($i) [max $max_fgen($i) 12]
+              } elseif {![string compare $typ b]} {
+                set rc [catch {exec grep "beule set_topstrom $i" $argv} \
+                        ret_string]
+                set val [lindex $ret_string 3]
+  
+                set rc [catch {exec grep "$elem set_beulenscale $i" $argv} \
+                        ret_string]
+                set scale [lindex $ret_string 3]
+  
+                set btop [format %8.3f [expr $top($elem,$i) + $val * $scale]]
+
+                set Ampl5($elem,$i) $btop
+                set Ampl6($elem,$i) $btop
+                set Ampl7($elem,$i) $t
+                set Ampl8($elem,$i) $t
+                set Ampl9($elem,$i) $s
+                set Ampl10($elem,$i) $s
+  
+                set rc [catch {exec grep "beule set_top $i" $argv} ret_string]
+                set otop [expr round([lindex $ret_string 3] * 1000)]
+  
+                set rc [catch {exec grep -e "beule set_begin $i" \
+                        -e "beule set_up $i" -e "beule set_bbegin $i" \
+                        -e "beule set_bup $i" -e "beule set_btop $i" \
+                        -e "beule set_bdown $i" -e "beule set_down $i" \
+                        -e "beule set_end $i" $argv} ret_string]
+  
+                 set liste [list begin up bbegin bup btop bdown down end]
+
+                 foreach line [split $ret_string "\n"] {
+                   set count 0
+                   set found 0
+  
+                   while {!$found} {
+                     set wert [lindex $liste $count]
+                     set search_string "beule set_$wert"
+  
+                     if {[string first $search_string $line] != -1} {
+                       set $wert [expr round([lindex $line 3] * 1000)]
+                       set found 1
+                     }
+  
+                     incr count
+                   }
+                 }
+
+                 set sum $begin
+                 set t2($elem,$i) [format %10d $sum]
+                 set sum [expr $sum + $up]
+                 set t3($elem,$i) [format %10d $sum]
+                 set sum [expr $sum + $bbegin]
+                 set t4($elem,$i) [format %10d $sum]
+                 set sum [expr $sum + $bup]
+                 set t5($elem,$i) [format %10d $sum]
+                 set sum [expr $sum + $btop]
+                 set t6($elem,$i) [format %10d $sum]
+                 set sum [expr $sum + $bdown]
+                 set t7($elem,$i) [format %10d $sum]
+                 set sum [expr $begin + $up + $otop]
+                 set t8($elem,$i) [format %10d $sum]
+                 set sum [expr $sum + $down]
+                 set t9($elem,$i) [format %10d $sum]
+                 set sum [expr $sum + $end]
+                 set t10($elem,$i) [format %10d $sum]
+  
+                 set max_fgen($i) [max $max_fgen($i) 10]
+               } else {
+                 set rc [catch {exec grep "orbit$elem set_timeval $i" $argv} \
+                         ret_string]
+  
+                 set t1($elem,$i) [format %10d 0]
+                 set count 2
+                 set sum 0
+  
+                 foreach line [split $ret_string "\n"] {
+                   set line [split $line \;]
+                   set tval [expr round([lindex [lindex $line 0] 4] * 1000)]
+                   set sum [expr $sum + $tval]
+                   set t${count}($elem,$i) [format %10d $sum]
+                   set aval [lindex [lindex $line 1] 4]
+                   set Ampl${count}($elem,$i) [format %8.3f $aval]
+  
+                   if {$count == 2} {
+                     set Ampl1($elem,$i) [format %8.3f $aval]
+                   }
+  
+                   set max_fgen($i) [max $max_fgen($i) $count]
+  
+                   incr count
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    for {set i 1} {$i <= $max_exp} {incr i} {
+      # falls i in savelist
+      if {[string first $i $savelist] != -1} {
+        puts "\n  Experiment: $i\n"
+
+        set line "  Netzgeraet  Ein/Aus  Polaritaet  Sollstrom    Topstrom  Rampt       "
+        set s    "  ===================================================================="
+
+        for {set index 1} {$index <= $max_fgen($i)} {incr index} {
+          if {$index < 10} {
+            append line "t$index:Ampl$index           "
+          } else {
+            append line "t$index:Ampl$index         "
+          }
+
+          append s "=================="
+        }
+
+        puts $line
+        puts $s
+
+        ### Tine: 26.01.2012
+        ### Es gibt inzwischen Geraete, die in der GUI nicht mehr bedient
+        ### werden, die aber noch im urspruenglichen Crate vorhanden sind !!!
+        ### Fuer sie wird auch in der Dummy-Version ein aus-Wert gesetzt.
+        ### Deshalb kann hier ein Problem auftauchen,
+        ### weil es keinen zugehoerigen Sollwert gibt !!!
+        ###
+        foreach elem [lsort [array names aus]] {
+          set name $elem
+  
+          for {set j [string length $elem]} {$j <= 9} {incr j} {
+            append name " "
+          }
+
+          if {$aus($elem)} {
+            set a "Aus"
+          } else {
+             set a "Ein"
+          }
+
+          if {[info exists positiv($elem)]} {
+              if {$positiv($elem)} {
+              set polarity "Positiv"
+            } else {
+              set polarity "Negativ"
+            }
+          } else {
+            set polarity "    ???"
+          }
+  
+          if {[info exists soll($elem,$i)]} {
+            set f1 [ format "%10.3f" $soll($elem,$i)]
+            set f2 [ format "%10.3f" $top($elem,$i)]
+          } else {
+            ### Geraet wird in der GUI nicht mehr angesteuert !!! (s.o.)
+            set f1 "!nicht da!"
+            set f2 "!nicht da!"
+          }
+  
+          if {[info exists ramp($elem)]} {
+            if { $ramp($elem) } {
+               set r "  Ja"
+            } else {
+               set r "Nein"
+            }
+          } else {
+            set r "???"
+          }
+
+          set line "  $name    $a     $polarity $f1  $f2    $r"
+    
+          for {set index 1} {$index <= $max_fgen($i)} {incr index} {
+            if {[info exists t${index}($elem,$i)]} {
+              append line [set t${index}($elem,$i)]:[set \
+                     Ampl${index}($elem,$i)]
+            }
+          }
+ 
+          puts $line
+        }
+      }
+    }
+  }
+}
+exit
